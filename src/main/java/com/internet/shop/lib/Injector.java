@@ -11,8 +11,8 @@ import java.util.*;
 public class Injector {
     private static final Map<String, Injector> injectors = new HashMap<>();
 
-    private Map<Class, Object> instanceOfClasses = new HashMap<>();
-    private List<Class> classes = new ArrayList<>();
+    private final Map<Class, Object> instanceOfClasses = new HashMap<>();
+    private final List<Class> classes = new ArrayList<>();
 
     private Injector(String mainPackageName) {
         try {

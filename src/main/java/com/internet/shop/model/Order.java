@@ -10,11 +10,10 @@ public class Order {
     private Long userId;
     private LocalDateTime orderTime;
 
-    public Order(List<Product> products, Long userId,
-                 LocalDateTime orderTime) {
+    public Order(List<Product> products, Long userId) {
         this.products = products;
         this.userId = userId;
-        this.orderTime = orderTime;
+        this.orderTime = LocalDateTime.now();
     }
 
     public Long getId() {
