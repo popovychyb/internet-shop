@@ -7,7 +7,6 @@ import com.internet.shop.model.User;
 import com.internet.shop.service.UserService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,8 +20,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> get(Long id) {
-        return userDao.get(id);
+    public User get(Long id) {
+        return userDao.get(id).get();
     }
 
     @Override
