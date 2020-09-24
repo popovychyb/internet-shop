@@ -9,7 +9,6 @@ import com.internet.shop.service.OrderService;
 import com.internet.shop.service.ShoppingCartService;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,13 +32,23 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Optional<Order> get(Long id) {
-        return orderDao.get(id);
+    public Order create(Order order) {
+        return orderDao.create(order);
+    }
+
+    @Override
+    public Order get(Long id) {
+        return orderDao.get(id).get();
     }
 
     @Override
     public List<Order> getAll() {
         return orderDao.getAll();
+    }
+
+    @Override
+    public Order update(Order element) {
+        return null;
     }
 
     @Override
