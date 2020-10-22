@@ -17,7 +17,7 @@ public class ShowCartController extends HttpServlet {
     private final ShoppingCartService shoppingCartService =
             (ShoppingCartService) ingector.getInstance(ShoppingCartService.class);
 
-
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         List<Product> products = shoppingCartService.getByUserId(USER_ID).getProducts();
