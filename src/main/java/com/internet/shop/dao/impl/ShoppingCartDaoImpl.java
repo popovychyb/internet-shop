@@ -42,4 +42,11 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     public List<ShoppingCart> getAll() {
         return Storage.shoppingCarts;
     }
+
+    @Override
+    public Optional<ShoppingCart> getByUserId(Long userId) {
+        return getAll().stream()
+                .filter(shoppingCart -> shoppingCart.getUserId().equals(userId))
+                .findFirst();
+    }
 }
