@@ -2,7 +2,6 @@ package com.internet.shop;
 
 import com.internet.shop.lib.Injector;
 import com.internet.shop.model.Product;
-import com.internet.shop.model.ShoppingCart;
 import com.internet.shop.model.User;
 import com.internet.shop.service.OrderService;
 import com.internet.shop.service.ProductService;
@@ -10,7 +9,6 @@ import com.internet.shop.service.ShoppingCartService;
 import com.internet.shop.service.UserService;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 public class Application {
     private static final Injector injector = Injector.getInstance("com.internet.shop");
@@ -62,35 +60,35 @@ public class Application {
         userService.delete(lena.getId());
         userService.getAll().forEach(System.out::println);
 
-        System.out.println("\n Create shopping cart for Ivan add product: ");
-        ShoppingCart shoppingCart =
-                shoppingCartService.create(new ShoppingCart(new ArrayList<>(), 1L));
-        shoppingCartService.addProduct(shoppingCart, iphone11);
-        shoppingCartService.addProduct(shoppingCart, iphoneCE);
-        shoppingCartService.getAll().forEach(System.out::println);
-
-        System.out.println(" Delete iphone11 from shopping cart, all: ");
-        shoppingCartService.deleteProduct(shoppingCart, iphone11);
-        shoppingCartService.getAll().forEach(System.out::println);
-
-        System.out.println(" Get shopping cart user by id 1:");
-        System.out.println(shoppingCartService.getByUserId(1L));
-
-        System.out.println(" Clear shopping cart:");
-        shoppingCartService.clear(shoppingCart);
-        shoppingCartService.getAll().forEach(System.out::println);
-
-        System.out.println(" Delete shopping cart, all:");
-        shoppingCartService.delete(1L);
-        shoppingCartService.getAll().forEach(System.out::println);
-
-        System.out.println("\n Create order for Ivan: ");
-        ShoppingCart shoppingCartIvan =
-                shoppingCartService.create(new ShoppingCart(new ArrayList<>(), 1L));
-        shoppingCartService.addProduct(shoppingCartIvan, iphone11);
-        shoppingCartService.addProduct(shoppingCartIvan, iphoneCE);
-        orderService.completeOrder(shoppingCartIvan);
-        orderService.getAll().forEach(System.out::println);
+//        System.out.println("\n Create shopping cart for Ivan add product: ");
+//        ShoppingCart shoppingCart =
+//                shoppingCartService.create(new ShoppingCart(new ArrayList<>(), 1L));
+//        shoppingCartService.addProduct(shoppingCart, iphone11);
+//        shoppingCartService.addProduct(shoppingCart, iphoneCE);
+//        shoppingCartService.getAll().forEach(System.out::println);
+//
+//        System.out.println(" Delete iphone11 from shopping cart, all: ");
+//        shoppingCartService.deleteProduct(shoppingCart, iphone11);
+//        shoppingCartService.getAll().forEach(System.out::println);
+//
+//        System.out.println(" Get shopping cart user by id 1:");
+//        System.out.println(shoppingCartService.getByUserId(1L));
+//
+//        System.out.println(" Clear shopping cart:");
+//        shoppingCartService.clear(shoppingCart);
+//        shoppingCartService.getAll().forEach(System.out::println);
+//
+//        System.out.println(" Delete shopping cart, all:");
+//        shoppingCartService.delete(1L);
+//        shoppingCartService.getAll().forEach(System.out::println);
+//
+//        System.out.println("\n Create order for Ivan: ");
+//        ShoppingCart shoppingCartIvan =
+//                shoppingCartService.create(new ShoppingCart(new ArrayList<>(), 1L));
+//        shoppingCartService.addProduct(shoppingCartIvan, iphone11);
+//        shoppingCartService.addProduct(shoppingCartIvan, iphoneCE);
+//        orderService.completeOrder(shoppingCartIvan);
+//        orderService.getAll().forEach(System.out::println);
 
         System.out.println(" Get User Orders: ");
         orderService.getUserOrders(1L).forEach(System.out::println);
