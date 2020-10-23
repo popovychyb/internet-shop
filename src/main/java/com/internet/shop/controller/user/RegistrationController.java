@@ -3,6 +3,7 @@ package com.internet.shop.controller.user;
 import com.internet.shop.lib.Injector;
 import com.internet.shop.model.User;
 import com.internet.shop.service.UserService;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +14,7 @@ import java.io.IOException;
 public class RegistrationController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("com.internet.shop");
     private final UserService userService = (UserService) injector.getInstance(UserService.class);
-
+    private static final Logger LOGGER = Logger.getLogger(RegistrationController.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -34,6 +35,7 @@ public class RegistrationController extends HttpServlet {
             userService.create(new User(name, login, password));
             resp.sendRedirect(req.getContextPath() + "/");
         } else {
+            LOGGER.warn("Registration error - Password and repeat password aren't same");
             req.setAttribute("message", "Password and repeat password aren't same");
             req.getRequestDispatcher("/WEB-INF/views/registration.jsp")
                     .forward(req, resp);
