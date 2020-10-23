@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>All products</title>
+    <title>Order complete</title>
 </head>
 <body>
-<h1>All products</h1>
+<h1>Order complete</h1>
 <table border="1">
     <tr>
-        <th scope="col">Id</th>
+        <th scope="col">Product id</th>
         <th scope="col">Name</th>
         <th scope="col">Price</th>
     </tr>
@@ -24,16 +24,11 @@
             <td>
                 <c:out value="${product.price}"/>
             </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/cart/putProduct?id=${product.id}">Add to cart</a>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/product/delete?id=${product.id}">Delete</a>
-            </td>
         </tr>
     </c:forEach>
 </table>
-<br>
-<a href="${pageContext.request.contextPath}/">Go to the main page</a>
+<a href="${pageContext.request.contextPath}/order/allUser">
+    <button type="button">Show my orders</button>
+</a>
 </body>
 </html>

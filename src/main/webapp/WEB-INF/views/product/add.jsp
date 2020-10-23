@@ -12,8 +12,10 @@
     Product price: <input type="text" name="price">
     <br>
     <button type="submit">Add</button>
-    <br>
-    <a href="${pageContext.request.contextPath}/">Go to the main page</a>
 </form>
+<br>
+<a href="${pageContext.request.contextPath}/">Go to the main page</a>
+<br>
+<a href="${pageContext.request.contextPath}/product/allAdmin">Go to the all products page</a>
 </body>
 </html>
