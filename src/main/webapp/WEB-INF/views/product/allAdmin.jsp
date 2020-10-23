@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shopping cart</title>
+    <title>All products admin page</title>
 </head>
 <body>
-<h1>Products in shopping cart</h1>
+<h1>All products admin page</h1>
 <table border="1">
     <tr>
         <th scope="col">Id</th>
@@ -25,13 +25,14 @@
                 <c:out value="${product.price}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cart/deleteProduct?id=${product.id}">Remove</a>
+                <a href="${pageContext.request.contextPath}/product/delete?id=${product.id}">Delete</a>
             </td>
         </tr>
     </c:forEach>
 </table>
-<form method="post" action="${pageContext.request.contextPath}/order/complete">
-    <button type="submit">Complete order</button>
-</form>
+<br>
+<a href="${pageContext.request.contextPath}/product/add">Add new product</a>
+<br>
+<a href="${pageContext.request.contextPath}/">Go to the main page</a>
 </body>
 </html>
